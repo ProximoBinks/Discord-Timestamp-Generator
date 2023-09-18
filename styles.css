@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
-    background: #161620;
     color: #eee;
     font-family: 'Raleway', sans-serif;
 }
@@ -20,7 +18,7 @@ body {
     box-shadow: 0px 0px 10px #666;
 }
 
-.container>* {
+.container > * {
     margin: 0.5rem;
 }
 
@@ -28,9 +26,7 @@ body {
     grid-column: span 2;
 }
 
-input,
-select,
-button {
+input, select, button {
     background: #383842;
     color: #fff;
     border: 1px solid #666;
@@ -51,18 +47,6 @@ button {
     cursor: pointer;
 }
 
-@media (max-width: 50rem) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-    }
-
-    .container>* {
-        margin: 1rem 0.2rem;
-    }
-}
-
 .button-clicked {
     background-color: #666;
     border: 1px solid #999;
@@ -77,4 +61,136 @@ button {
     text-align: center;
     padding: 1rem;
     font-family: 'Raleway', sans-serif;
-  }
+}
+
+#theme-switcher-wrapper {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding-bottom: 10px;
+    z-index: 1000; /* Optional, to ensure it stays above other content */
+}
+
+/* Light Theme */
+body[data-theme='light'] {
+    background: #F2F2F2;
+    color: #333;
+}
+
+body[data-theme='light'] .container,
+body[data-theme='light'] input,
+body[data-theme='light'] select,
+body[data-theme='light'] button {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+body[data-theme='light'] .footer {
+    background-color: #ddd;
+    color: #333;
+}
+
+body[data-theme='light'] button:active {
+    background-color: #ccc;
+    color: #111;
+}
+
+body[data-theme='light'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='light'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}
+
+/* Dark Theme */
+body[data-theme='dark'] {
+    background: #151515;
+    color: #9f9f9f;
+}
+body[data-theme='dark'] .container,
+body[data-theme='dark'] input,
+body[data-theme='dark'] select,
+body[data-theme='dark'] button {
+    background: #151515;
+    color: #9f9f9f;
+    border: 1px solid #dadada;
+}
+body[data-theme='dark'] .footer {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+body[data-theme='dark'] h1 {
+    color: #ffffff;
+}
+
+body[data-theme='dark'] button:active {
+    background-color: #ffffff;
+    color: #151515;
+}
+body[data-theme='dark'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='dark'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* ... similar structure for other themes ... */
+
+/* Radical Theme */
+body[data-theme='radical'] {
+    background: #141321;
+    color: #a9fef7;
+}
+body[data-theme='radical'] .container,
+body[data-theme='radical'] input,
+body[data-theme='radical'] select,
+body[data-theme='radical'] button {
+    background: #431c36;
+    color: #d83b7d;
+    border: 1px solid #d83b7d;
+}
+body[data-theme='radical'] .footer {
+    background-color: #f8d847;
+    color: #141321;
+}
+body[data-theme='radical'] button:active {
+    background-color: #f8d847;
+    color: #141321;
+}
+body[data-theme='radical'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='radical'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Merko Theme */
+body[data-theme='merko'] {
+    background: #004447;
+    color: #ffffff;
+}
+
+body[data-theme='merko'] .container,
+body[data-theme='merko'] input,
+body[data-theme='merko'] select,
+body[data-theme='merko'] button {
+    background: #00363a;
+    color: #ffffff;
+    border: 1px solid #00555b;
+}
+
+body[data-theme='merko'] .footer {
+    background-color: #002f32;
+    color: #ffffff;
+}
+
+
+/* Media Queries */
+@media (max-width: 50rem) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .container > * {
+        margin: 1rem 0.2rem;
+    }
+}
+

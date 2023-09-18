@@ -129,3 +129,12 @@ function updateOutput() {
         preview.textContent = formatter.format(selectedDate);
     }
 }
+
+const themeSwitcher = document.getElementById('theme-switcher');
+
+themeSwitcher.addEventListener('change', function() {
+  document.body.setAttribute('data-theme', this.value);
+});
+
+// To set a default theme
+document.body.setAttribute('data-theme', 'dark');

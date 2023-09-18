@@ -3,20 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Elliot Koh">
+    <meta name="description" content="A Discord Timestamp Generator">
+    <meta name="keywords" content="Discord, Timestamp, Generator">
     <title>Discord Timestamp Generator</title>
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <p>Get a dynamic date-time display in your Discord messages. Choose your local time and copy the code below.</p>
+    <div id="theme-switcher-wrapper">
+        <label for="theme-switcher">Select theme:</label>
+        <select id="theme-switcher">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="radical">Radical</option>
+            <option value="merko">Merko</option>
+            <option value="gruvbox">Gruvbox</option>
+            <option value="tokyonight">TokyoNight</option>
+            <option value="onedark">OneDark</option>
+            <option value="cobalt">Cobalt</option>
+            <option value="synthwave">Synthwave</option>
+            <option value="highcontrast">High Contrast</option>
+            <option value="dracula">Dracula</option>
+        </select>
     </div>
-    <div class="container">
-        <span>Date</span><input type="date" id="d">
-        <span>Time</span><input type="time" id="hm">
-        <span>Type</span>
-        <select id="t">
+    <div class="container theme-container">
+        <h1 class="theme-title">Discord Timestamp Generator</h1><endl></endl>
+        <p class="theme-body">Get a dynamic date-time display in your Discord messages. Choose your local time and copy the code below.</p>
+    </div>
+    <div class="container theme-container">
+        <span class="theme-body">Date</span><input class="theme-accent" type="date" id="d">
+        <span class="theme-body">Time</span><input class="theme-accent" type="time" id="hm">
+        <span class="theme-body">Type</span>
+        <select class="theme-accent" id="t">
             <option value="t">short time</option>
             <option value="T">long time</option>
             <option value="d">short date</option>
@@ -25,16 +46,16 @@
             <option value="F">long date with day of week and short time</option>
             <option value="R" selected="">relative</option>
         </select>
-        <span>Output</span><span id="preview">1 minute ago</span>
-        <input type="text" readonly="" id="code" title="Press Ctrl/Cmd+C to copy">
-        <button id="copy">Copy to clipboard</button>
-        <button id="current">Reset to current time</button>
+        <span class="theme-body">Output</span><span class="theme-body" id="preview">1 minute ago</span>
+        <input class="theme-accent" type="text" readonly="" id="code" title="Press Ctrl/Cmd+C to copy">
+        <button class="theme-accent" id="copy">Copy to clipboard</button>
+        <button class="theme-accent" id="current">Reset to current time</button>
     </div>
-    <footer class="footer">
-        <p>© <span id="currentYear"></span> Elliot Koh</p>
+    <footer class="footer theme-footer">
+        <p class="theme-footer-text">© <span id="currentYear"></span> Elliot Koh</p>
     </footer>
-    
+
     <script src="script.js"></script>
-    </body>
-    
-    </html>
+</body>
+
+</html>
