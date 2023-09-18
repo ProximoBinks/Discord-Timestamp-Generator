@@ -6,6 +6,22 @@ const copy = document.getElementById('copy');
 const current = document.getElementById('current');
 const preview = document.getElementById('preview');
 
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+copy.addEventListener('mousedown', function () {
+    this.classList.add('button-clicked');
+});
+copy.addEventListener('mouseup', function () {
+    this.classList.remove('button-clicked');
+});
+
+current.addEventListener('mousedown', function () {
+    this.classList.add('button-clicked');
+});
+current.addEventListener('mouseup', function () {
+    this.classList.remove('button-clicked');
+});
+
 dateInput.onchange = updateOutput;
 timeInput.onchange = updateOutput;
 typeInput.onchange = updateOutput;
@@ -14,22 +30,48 @@ copy.onclick = async () => {
     updateOutput();
     try {
         await navigator.clipboard.writeText(output.value);
-        alert("Successfully copied");
     } catch (e) {
         console.error("Could not copy text: ", e);
         alert("Failed to copy text");
     }
 };
 
+let intervalId;
+
 const onload = _ => {
-    const now = new Date();
-    dateInput.value = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-    timeInput.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-    updateOutput();
-}
+    // Use setTimeout to push the UI update to the end of the JS execution queue
+    setTimeout(() => {
+        clearInterval(intervalId); // Clear existing interval if any
+
+        const now = new Date();
+        dateInput.value = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
+        timeInput.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+
+        updateOutput(); // Update the preview
+
+        // Update relative time every second if the type is 'R'
+        if (typeInput.value === 'R') {
+            intervalId = setInterval(updateOutput, 1000);
+        }
+    }, 0);
+};
 
 window.onload = onload;
 current.onclick = onload;
+
+if (typeInput.value === 'R') {
+    intervalId = setInterval(updateOutput, 1000);
+}
+
+typeInput.onchange = function () {
+    clearInterval(intervalId); // Clear existing interval
+    updateOutput(); // Update once immediately
+
+    // If new type is 'R', start a new interval
+    if (typeInput.value === 'R') {
+        intervalId = setInterval(updateOutput, 1000);
+    }
+};
 
 const typeFormats = {
     't': { timeStyle: 'short' },
@@ -42,7 +84,7 @@ const typeFormats = {
 };
 
 function updateOutput() {
-    const selectedDate = new Date(dateInput.value + "T" + timeInput.value + ":00");
+    const selectedDate = new Date(dateInput.value + "T" + timeInput.value);
     const unixTimestamp = Math.floor(selectedDate.getTime() / 1000);
     output.value = `<t:${unixTimestamp}:${typeInput.value}>`;
 
@@ -50,22 +92,38 @@ function updateOutput() {
     if (typeInput.value === 'R') {
         const now = new Date();
         const differenceInSeconds = Math.floor((selectedDate - now) / 1000);
-        const formatter = new Intl.RelativeTimeFormat(navigator.language || 'en', typeFormats[typeInput.value] || {});
+        const formatter = new Intl.RelativeTimeFormat(navigator.language || 'en', { numeric: 'auto' });
+
         let unit = 'second';
         let value = differenceInSeconds;
-        if (Math.abs(differenceInSeconds) > 60) {
-            value = Math.floor(differenceInSeconds / 60);
-            unit = 'minute';
+
+        const conversions = [
+            { unit: 'year', seconds: 60 * 60 * 24 * 365 },
+            { unit: 'month', seconds: 60 * 60 * 24 * 30 },
+            { unit: 'week', seconds: 60 * 60 * 24 * 7 },
+            { unit: 'day', seconds: 60 * 60 * 24 },
+            { unit: 'hour', seconds: 60 * 60 },
+            { unit: 'minute', seconds: 60 }
+        ];
+
+        for (const conversion of conversions) {
+            if (Math.abs(differenceInSeconds) >= conversion.seconds) {
+                value = Math.round(differenceInSeconds / conversion.seconds);
+                unit = conversion.unit;
+                break;
+            }
         }
-        if (Math.abs(value) > 60) {
-            value = Math.floor(value / 60);
-            unit = 'hour';
+
+        if (unit === 'minute') {
+            if (Math.abs(differenceInSeconds) < 120) {
+                preview.textContent = "1 minute ago";
+            } else {
+                preview.textContent = formatter.format(value, unit);
+            }
+        } else {
+            preview.textContent = formatter.format(value, unit);
         }
-        if (Math.abs(value) > 24) {
-            value = Math.floor(value / 24);
-            unit = 'day';
-        }
-        preview.textContent = formatter.format(value, unit);
+
     } else {
         const formatter = new Intl.DateTimeFormat(navigator.language || 'en', typeFormats[typeInput.value] || {});
         preview.textContent = formatter.format(selectedDate);
