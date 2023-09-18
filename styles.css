@@ -116,8 +116,8 @@ body[data-theme='dark'] h1 {
 }
 
 body[data-theme='dark'] button:active {
-    background-color: #ffffff;
-    color: #151515;
+    background-color: #1e1e1e;
+    color: #9f9f9f;
 }
 body[data-theme='dark'] input[type="date"]::-webkit-calendar-picker-indicator,
 body[data-theme='dark'] input[type="time"]::-webkit-calendar-picker-indicator {
