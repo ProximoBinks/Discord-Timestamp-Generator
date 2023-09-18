@@ -431,7 +431,7 @@ body[data-theme='bluelight'] h1 {
 
 body[data-theme='bluelight'] input[type="date"]::-webkit-calendar-picker-indicator,
 body[data-theme='bluelight'] input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
+    filter: invert(0);
 }
 
 /* bluedark Theme */
