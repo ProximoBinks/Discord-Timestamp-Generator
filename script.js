@@ -137,4 +137,4 @@ themeSwitcher.addEventListener('change', function() {
 });
 
 // To set a default theme
-document.body.setAttribute('data-theme', 'light');
+document.body.setAttribute('data-theme', 'dark');
