@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #161620;
+    color: #eee;
+    font-family: sans-serif;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    width: 50rem;
+    margin: 0 auto;
+    border-right: 1px solid #666;
+    border-left: 1px solid #666;
+    padding: 1rem;
+  }
+  
+  .container > * {
+    margin: 0.2rem;
+  }
+  
+  #current {
+    grid-column: span 2;
+  }
+  
+  input, select, button {
+    background: #383842;
+    color: #fff;
+    border: 1px solid #666;
+  }
+  
+  #code {
+    font-family: monospace;
+  }
+  
+  @media (max-width: 50rem) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+    }
+    .container > * {
+      margin: 1rem 0.2rem;
+    }
+  }
+  
