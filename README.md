@@ -9,7 +9,7 @@ A convenient utility to generate Discord timestamps. Useful for Discord users wh
 - Generate Unix timestamps compatible with Discord's timestamp styling.
 - Multiple theme options for styling the timestamp.
 - User-friendly interface to specify date, time, and theme.
-- Real-time preview to visualize how the timestamp will appear in Discord.
+- Real-time preview to visualise how the timestamp will appear in Discord.
 - Copy-to-clipboard functionality for easy sharing.
 
 ## Demo
