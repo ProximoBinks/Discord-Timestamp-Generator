@@ -1,9 +1,6 @@
 # Discord Timestamp Generator
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ProximoBinks/Discord-Timestamp-Generator/blob/main/LICENSE)<br /><br />  
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ProximoBinks/Discord-Timestamp-Generator/blob/main/LICENSE)
 
 A convenient utility to generate Discord timestamps. Useful for Discord users who want to insert customised timestamps into their messages and developers who need this functionality.
 
@@ -43,3 +40,7 @@ git clone https://github.com/ProximoBinks/Discord-Timestamp-Generator.git
 ## License
 
 This project is licensed under the MIT License.
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
