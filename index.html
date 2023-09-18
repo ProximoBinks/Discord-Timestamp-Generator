@@ -27,6 +27,8 @@
             <option value="synthwave">Synthwave</option>
             <option value="highcontrast">High Contrast</option>
             <option value="dracula">Dracula</option>
+            <option value="bluelight">Blue Light</option>
+            <option value="bluedark">Blue Dark</option>
         </select>
     </div>
     <div class="container theme-container">
@@ -34,9 +36,9 @@
         <p class="theme-body">Get a dynamic date-time display in your Discord messages. Choose your local time and copy the code below.</p>
     </div>
     <div class="container theme-container">
-        <span class="theme-body">Date</span><input class="theme-accent" type="date" id="d">
-        <span class="theme-body">Time</span><input class="theme-accent" type="time" id="hm">
-        <span class="theme-body">Type</span>
+        <span class="theme-body"><b>Date</b></span><input class="theme-accent" type="date" id="d">
+        <span class="theme-body"><b>Time</b></span><input class="theme-accent" type="time" id="hm">
+        <span class="theme-body"><b>Type</b></span>
         <select class="theme-accent" id="t">
             <option value="t">short time</option>
             <option value="T">long time</option>
@@ -46,13 +48,13 @@
             <option value="F">long date with day of week and short time</option>
             <option value="R" selected="">relative</option>
         </select>
-        <span class="theme-body">Output</span><span class="theme-body" id="preview">1 minute ago</span>
+        <span class="theme-body"><b>Output</b></span><span class="theme-body" id="preview">1 minute ago</span>
         <input class="theme-accent" type="text" readonly="" id="code" title="Press Ctrl/Cmd+C to copy">
         <button class="theme-accent" id="copy">Copy to clipboard</button>
         <button class="theme-accent" id="current">Reset to current time</button>
     </div>
     <footer class="footer theme-footer">
-        <p class="theme-footer-text">© <span id="currentYear"></span> Elliot Koh</p>
+        <p class="theme-footer-text"><b>© <span id="currentYear"></span> Elliot Koh</b></p>
     </footer>
 
     <script src="script.js"></script>

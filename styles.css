@@ -59,7 +59,7 @@ button {
     background-color: #161620;
     color: #eee;
     text-align: center;
-    padding: 1rem;
+    padding: 10px;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -92,7 +92,7 @@ body[data-theme='light'] .footer {
 }
 
 body[data-theme='light'] button:active {
-    background-color: #ccc;
+    background-color: #eaeaea;
     color: #111;
 }
 
@@ -112,11 +112,11 @@ body[data-theme='dark'] select,
 body[data-theme='dark'] button {
     background: #151515;
     color: #9f9f9f;
-    border: 1px solid #dadada;
+    border: 1px solid #79ff97;
 }
 body[data-theme='dark'] .footer {
-    background-color: #444444;
-    color: #ffffff;
+    background-color: #1c1c1c;
+    color: #9f9f9f;
 }
 
 body[data-theme='dark'] h1 {
@@ -132,8 +132,6 @@ body[data-theme='dark'] input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
 
-/* ... similar structure for other themes ... */
-
 /* Radical Theme */
 body[data-theme='radical'] {
     background: #141321;
@@ -143,9 +141,9 @@ body[data-theme='radical'] .container,
 body[data-theme='radical'] input,
 body[data-theme='radical'] select,
 body[data-theme='radical'] button {
-    background: #431c36;
-    color: #d83b7d;
-    border: 1px solid #d83b7d;
+    background: #141321;
+    color: #a9fef7;
+    border: 1px solid #f8d847;
 }
 body[data-theme='radical'] .footer {
     background-color: #f8d847;
@@ -155,6 +153,11 @@ body[data-theme='radical'] button:active {
     background-color: #f8d847;
     color: #141321;
 }
+
+body[data-theme='radical'] h1 {
+    color: #fe428e;
+}
+
 body[data-theme='radical'] input[type="date"]::-webkit-calendar-picker-indicator,
 body[data-theme='radical'] input[type="time"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
@@ -162,24 +165,313 @@ body[data-theme='radical'] input[type="time"]::-webkit-calendar-picker-indicator
 
 /* Merko Theme */
 body[data-theme='merko'] {
-    background: #004447;
-    color: #ffffff;
+    background: #0a0f0b;
+    color: #68b587;
 }
-
 body[data-theme='merko'] .container,
 body[data-theme='merko'] input,
 body[data-theme='merko'] select,
 body[data-theme='merko'] button {
-    background: #00363a;
-    color: #ffffff;
-    border: 1px solid #00555b;
+    background: #0a0f0b;
+    color: #68b587;
+    border: 1px solid #b7d364;
 }
-
 body[data-theme='merko'] .footer {
-    background-color: #002f32;
-    color: #ffffff;
+    background-color: #b7d364;
+    color: #0a0f0b;
+}
+body[data-theme='merko'] button:active {
+    background-color: #b7d364;
+    color: #0a0f0b;
 }
 
+body[data-theme='merko'] h1 {
+    color: #abd200;
+}
+
+body[data-theme='merko'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='merko'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Gruvbox Theme */
+body[data-theme='gruvbox'] {
+    background: #282828;
+    color: #68b587;
+}
+body[data-theme='gruvbox'] .container,
+body[data-theme='gruvbox'] input,
+body[data-theme='gruvbox'] select,
+body[data-theme='gruvbox'] button {
+    background: #282828;
+    color: #68b587;
+    border: 1px solid #fe8019;
+}
+body[data-theme='gruvbox'] .footer {
+    background-color: #fe8019;
+    color: #282828;
+}
+body[data-theme='gruvbox'] button:active {
+    background-color: #fe8019;
+    color: #282828;
+}
+
+body[data-theme='gruvbox'] h1 {
+    color: #fabd2f;
+}
+
+body[data-theme='gruvbox'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='gruvbox'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* tokyonight Theme */
+body[data-theme='tokyonight'] {
+    background: #1a1b27;
+    color: #38bdae;
+}
+body[data-theme='tokyonight'] .container,
+body[data-theme='tokyonight'] input,
+body[data-theme='tokyonight'] select,
+body[data-theme='tokyonight'] button {
+    background: #1a1b27;
+    color: #38bdae;
+    border: 1px solid #bf91f3;
+}
+body[data-theme='tokyonight'] .footer {
+    background-color: #bf91f3;
+    color: #1a1b27;
+}
+body[data-theme='tokyonight'] button:active {
+    background-color: #bf91f3;
+    color: #1a1b27;
+}
+
+body[data-theme='tokyonight'] h1 {
+    color: #70a5fd;
+}
+
+body[data-theme='tokyonight'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='tokyonight'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* onedark Theme */
+body[data-theme='onedark'] {
+    background: #282c34;
+    color: #df6d74;
+}
+body[data-theme='onedark'] .container,
+body[data-theme='onedark'] input,
+body[data-theme='onedark'] select,
+body[data-theme='onedark'] button {
+    background: #282c34;
+    color: #df6d74;
+    border: 1px solid #8eb573;
+}
+body[data-theme='onedark'] .footer {
+    background-color: #8eb573;
+    color: #282c34;
+}
+body[data-theme='onedark'] button:active {
+    background-color: #8eb573;
+    color: #282c34;
+}
+
+body[data-theme='onedark'] h1 {
+    color: #e4bf7a;
+}
+
+body[data-theme='onedark'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='onedark'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* cobalt Theme */
+body[data-theme='cobalt'] {
+    background: #193549;
+    color: #75eeb2;
+}
+body[data-theme='cobalt'] .container,
+body[data-theme='cobalt'] input,
+body[data-theme='cobalt'] select,
+body[data-theme='cobalt'] button {
+    background: #193549;
+    color: #75eeb2;
+    border: 1px solid #0480ef;
+}
+body[data-theme='cobalt'] .footer {
+    background-color: #0480ef;
+    color: #193549;
+}
+body[data-theme='cobalt'] button:active {
+    background-color: #0480ef;
+    color: #193549;
+}
+
+body[data-theme='cobalt'] h1 {
+    color: #e683d9;
+}
+
+body[data-theme='cobalt'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='cobalt'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* synthwave Theme */
+body[data-theme='synthwave'] {
+    background: #2b213a;
+    color: #e5289e;
+}
+body[data-theme='synthwave'] .container,
+body[data-theme='synthwave'] input,
+body[data-theme='synthwave'] select,
+body[data-theme='synthwave'] button {
+    background: #2b213a;
+    color: #e5289e;
+    border: 1px solid #ef8539;
+}
+body[data-theme='synthwave'] .footer {
+    background-color: #ef8539;
+    color: #2b213a;
+}
+body[data-theme='synthwave'] button:active {
+    background-color: #ef8539;
+    color: #2b213a;
+}
+
+body[data-theme='synthwave'] h1 {
+    color: #e2e9ec;
+}
+
+body[data-theme='synthwave'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='synthwave'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* highcontrast Theme */
+body[data-theme='highcontrast'] {
+    background: #000000;
+    color: #ffffff;
+}
+body[data-theme='highcontrast'] .container,
+body[data-theme='highcontrast'] input,
+body[data-theme='highcontrast'] select,
+body[data-theme='highcontrast'] button {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #00ffff;
+}
+body[data-theme='highcontrast'] .footer {
+    background-color: #00ffff;
+    color: #000000;
+}
+body[data-theme='highcontrast'] button:active {
+    background-color: #00ffff;
+    color: #000000;
+}
+
+body[data-theme='highcontrast'] h1 {
+    color: #e7f216;
+}
+
+body[data-theme='highcontrast'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='highcontrast'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* dracula Theme */
+body[data-theme='dracula'] {
+    background: #282a36;
+    color: #f8f8f2;
+}
+body[data-theme='dracula'] .container,
+body[data-theme='dracula'] input,
+body[data-theme='dracula'] select,
+body[data-theme='dracula'] button {
+    background: #282a36;
+    color: #f8f8f2;
+    border: 1px solid #79dafa;
+}
+body[data-theme='dracula'] .footer {
+    background-color: #79dafa;
+    color: #282a36;
+}
+body[data-theme='dracula'] button:active {
+    background-color: #79dafa;
+    color: #282a36;
+}
+
+body[data-theme='dracula'] h1 {
+    color: #ff6e96;
+}
+
+body[data-theme='dracula'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='dracula'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* bluelight Theme */
+body[data-theme='bluelight'] {
+    background: #fffefe;
+    color: #434d58;
+}
+body[data-theme='bluelight'] .container,
+body[data-theme='bluelight'] input,
+body[data-theme='bluelight'] select,
+body[data-theme='bluelight'] button {
+    background: #fffefe;
+    color: #434d58;
+    border: 1px solid #4c71f2;
+}
+body[data-theme='bluelight'] .footer {
+    background-color: #4c71f2;
+    color: #fffefe;
+}
+body[data-theme='bluelight'] button:active {
+    background-color: #4c71f2;
+    color: #fffefe;
+}
+
+body[data-theme='bluelight'] h1 {
+    color: #2f80ed;
+}
+
+body[data-theme='bluelight'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='bluelight'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* bluedark Theme */
+body[data-theme='bluedark'] {
+    background: #0d1117;
+    color: #417e87;
+}
+body[data-theme='bluedark'] .container,
+body[data-theme='bluedark'] input,
+body[data-theme='bluedark'] select,
+body[data-theme='bluedark'] button {
+    background: #0d1117;
+    color: #417e87;
+    border: 1px solid #0579c3;
+}
+body[data-theme='bluedark'] .footer {
+    background-color: #0579c3;
+    color: #0d1117;
+}
+body[data-theme='bluedark'] button:active {
+    background-color: #0579c3;
+    color: #0d1117;
+}
+
+body[data-theme='bluedark'] h1 {
+    color: #006aff;
+}
+
+body[data-theme='bluedark'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='bluedark'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
 
 /* Media Queries */
 @media (max-width: 50rem) {
