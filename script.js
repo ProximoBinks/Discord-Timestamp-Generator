@@ -136,5 +136,5 @@ themeSwitcher.addEventListener('change', function() {
   document.body.setAttribute('data-theme', this.value);
 });
 
-// To set a default theme
-document.body.setAttribute('data-theme', 'dark');
+// To set the HyperTools theme as default
+document.body.setAttribute('data-theme', 'hypertools');

@@ -1,10 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Ensure Inter is applied to form controls across all browsers */
+input, button, select, option, textarea, .theme-switcher-wrapper, #theme-switcher {
+    font-family: 'Inter', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep monospace for code element */
+#code {
+    font-family: monospace !important;
+    width: 100%;
+}
+
+#code:focus {
+    z-index: 1;
+}
 
 html, body {
     margin: 0;
     padding: 0;
-    color: #eee;
-    font-family: 'Raleway', sans-serif;
 }
 
 .container {
@@ -12,10 +31,8 @@ html, body {
     grid-template-columns: 1fr max-content;
     width: 50rem;
     margin: 2rem auto;
-    border: 1px solid #666;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px #666;
 }
 
 .container > * {
@@ -26,41 +43,105 @@ html, body {
     grid-column: span 2;
 }
 
-input, select, button {
-    background: #383842;
-    color: #fff;
-    border: 1px solid #666;
+input, select, button, option {
     padding: 0.5rem;
     border-radius: 4px;
 }
 
-#code {
-    font-family: monospace;
-    width: 100%;
-}
-
-#code:focus {
-    z-index: 1;
+button:hover {
+    background: #3d2349;
 }
 
 button {
     cursor: pointer;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 .button-clicked {
-    background-color: #666;
-    border: 1px solid #999;
+    background-color: #9e57f4;
+    border: 1px solid #b77dff;
 }
 
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #161620;
-    color: #eee;
     text-align: center;
     padding: 10px;
-    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.theme-footer-text {
+    font-weight: 400;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.branding img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.branding h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.theme-switcher-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.theme-switcher-wrapper label {
+    margin-right: 5px;
+}
+
+/* HyperTools Theme */
+body[data-theme='hypertools'] {
+    background: #1a1124;
+    color: #ffffff;
+}
+body[data-theme='hypertools'] .container,
+body[data-theme='hypertools'] input,
+body[data-theme='hypertools'] select,
+body[data-theme='hypertools'] button {
+    background: #2d1a36;
+    color: #ffffff;
+    border: 1px solid #9e57f4;
+}
+body[data-theme='hypertools'] .container {
+    box-shadow: 0px 0px 10px rgba(158, 87, 244, 0.5);
+}
+body[data-theme='hypertools'] .footer {
+    background-color: #2d1a36;
+    color: #ffffff;
+}
+body[data-theme='hypertools'] button:active {
+    background-color: #9e57f4;
+    color: #ffffff;
+}
+body[data-theme='hypertools'] h1 {
+    color: #b77dff;
+}
+body[data-theme='hypertools'] .branding h2 {
+    color: #b77dff;
+}
+body[data-theme='hypertools'] input[type="date"]::-webkit-calendar-picker-indicator,
+body[data-theme='hypertools'] input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+body[data-theme='hypertools'] .theme-switcher-wrapper {
+    color: #ffffff;
 }
 
 /* Light Theme */
@@ -478,14 +559,48 @@ body[data-theme='bluedark'] input[type="time"]::-webkit-calendar-picker-indicato
     }
 }
 
-.theme-switcher-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 15px;
-    margin-right: 15px;
+/* Override browser specific dropdown styling */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23999"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.7em center;
+    background-size: 0.65em auto;
+    padding-right: 1.5em;
 }
 
-.theme-switcher-wrapper label {
-    margin-right: 5px;
+/* Additional selectors to ensure Inter is applied to dropdown menus */
+select, select *, option {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Ensure select elements in all themes use Inter */
+body[data-theme='hypertools'] select,
+body[data-theme='dark'] select,
+body[data-theme='light'] select,
+body[data-theme='radical'] select,
+body[data-theme='merko'] select,
+body[data-theme='gruvbox'] select,
+body[data-theme='tokyonight'] select,
+body[data-theme='onedark'] select,
+body[data-theme='cobalt'] select,
+body[data-theme='synthwave'] select,
+body[data-theme='highcontrast'] select,
+body[data-theme='dracula'] select,
+body[data-theme='bluelight'] select,
+body[data-theme='bluedark'] select {
+    font-family: 'Inter', sans-serif !important;
+}
+
+input {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+#theme-switcher {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500;
 }
