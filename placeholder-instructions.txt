@@ -1,9 +1,0 @@
-PLACEHOLDER INSTRUCTIONS
-
-Please place your logo.png file in the root directory of the project.
-This file should match the purple hexagonal logo shown in your message.
-
-If you don't have the exact image file, you can save the image from your message as "logo.png" 
-and place it in the same directory as the index.html file.
-
-The optimal dimensions for the logo should be approximately 40px in height, with proportional width. 

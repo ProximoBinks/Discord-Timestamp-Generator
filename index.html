@@ -3,16 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Elliot Koh">
-    <meta name="description" content="A Discord Timestamp Generator by Elliot Koh">
-    <meta name="keywords" content="Discord, Timestamp, Generator, HyperTools">
-    <title>Discord Timestamp Generator — HyperTools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="HyperTools">
+    <meta name="description" content="Free Discord Timestamp Generator tool. Create dynamic timestamps for Discord messages that adapt to each user's timezone. Supports all timestamp formats including relative time, short/long time, and dates.">
+    <meta name="keywords" content="Discord, Timestamp, Generator, Discord Timestamps, Discord Bot, Time Converter, Unix Timestamp, Discord Formatting, HyperTools, Discord Message, Server Time">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Discord Timestamp Generator — HyperTools">
+    <meta property="og:description" content="Free tool to create dynamic timestamps for Discord messages that adapt to each user's timezone.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://discord-timestamp.hypertools.dev/">
+    <meta property="og:image" content="https://discord-timestamp.hypertools.dev/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Discord Timestamp Generator — HyperTools">
+    <meta name="twitter:description" content="Free tool to create dynamic timestamps for Discord messages that adapt to each user's timezone.">
+    <meta name="twitter:image" content="https://discord-timestamp.hypertools.dev/og-image.png">
+    <title>Discord Timestamp Generator — Create Dynamic Time Display for Discord | HyperTools</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://discord-timestamp.hypertools.dev/">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Discord Timestamp Generator",
+      "url": "https://discord-timestamp.hypertools.dev/",
+      "description": "Free tool to create dynamic timestamps for Discord messages that adapt to each user's timezone.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "HyperTools",
+        "url": "https://hypertools.dev/"
+      }
+    }
+    </script>
 </head>
 
-<body>
+<body data-theme="hypertools">
     <div class="theme-switcher-wrapper">
         <label for="theme-switcher">Select theme:</label>
         <select id="theme-switcher">
@@ -32,34 +64,94 @@
             <option value="bluedark">Blue Dark</option>
         </select>
     </div>
+    
     <div class="branding">
         <img src="logo.png" alt="HyperTools Logo">
         <h2>HyperTools</h2>
     </div>
-    <div class="container theme-container">
-        <h1 class="theme-title">Discord Timestamp Generator</h1><endl></endl>
-        <p class="theme-body">Get a dynamic date-time display in your Discord messages. Choose your local time and copy the code below.</p>
-    </div>
-    <div class="container theme-container">
-        <span class="theme-body"><b>Date</b></span><input class="theme-accent" type="date" id="d">
-        <span class="theme-body"><b>Time</b></span><input class="theme-accent" type="time" id="hm">
-        <span class="theme-body"><b>Type</b></span>
-        <select class="theme-accent" id="t">
-            <option value="t">short time</option>
-            <option value="T">long time</option>
-            <option value="d">short date</option>
-            <option value="D">long date</option>
-            <option value="f">long date with short time</option>
-            <option value="F">long date with day of week and short time</option>
-            <option value="R" selected="">relative</option>
-        </select>
-        <span class="theme-body"><b>Output</b></span><span class="theme-body" id="preview">1 minute ago</span>
-        <input class="theme-accent" type="text" readonly="" id="code" title="Press Ctrl/Cmd+C to copy">
-        <button class="theme-accent" id="copy">Copy to clipboard</button>
-        <button class="theme-accent" id="current">Reset to current time</button>
-    </div>
-    <footer class="footer theme-footer">
-        <p class="theme-footer-text">© <span id="currentYear"></span> HyperTools — html/css/js</p>
+    
+    <main>
+        <div class="container header-container">
+            <div class="header-content">
+                <h1>Discord<br>Timestamp<br>Generator</h1>
+                <p>Get a dynamic date-time display in your Discord messages. Choose your local time and copy the code below.</p>
+            </div>
+        </div>
+        
+        <div class="container form-container">
+            <div class="form-row">
+                <div class="form-label">Date</div>
+                <div class="form-input">
+                    <input type="date" id="d" aria-label="Select date">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-label">Time</div>
+                <div class="form-input">
+                    <input type="time" id="hm" aria-label="Select time">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-label">Type</div>
+                <div class="form-input">
+                    <select id="t" aria-label="Select timestamp format">
+                        <option value="t">short time</option>
+                        <option value="T">long time</option>
+                        <option value="d">short date</option>
+                        <option value="D">long date</option>
+                        <option value="f">long date with short time</option>
+                        <option value="F">long date with day of week and short time</option>
+                        <option value="R" selected>relative</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-label">Output</div>
+                <div class="form-input output-display">
+                    <span id="preview">1 minute ago</span>
+                </div>
+            </div>
+            
+            <div class="code-row">
+                <input type="text" readonly id="code" aria-label="Generated timestamp code">
+                <button id="copy">Copy to clipboard</button>
+            </div>
+            
+            <button id="current" class="reset-button">Reset to current time</button>
+        </div>
+        
+        <div class="container info-container">
+            <div class="info-section">
+                <h2>How to Use<br>Discord<br>Timestamps</h2>
+                <p>Discord timestamps automatically adjust to each user's local timezone, making them perfect for coordinating events across different regions. Simply:</p>
+                <ol>
+                    <li>Select your date and time</li>
+                    <li>Choose your preferred timestamp format</li>
+                    <li>Copy the generated code</li>
+                    <li>Paste it directly into your Discord message</li>
+                </ol>
+            </div>
+            
+            <div class="formats-section">
+                <h2>Discord Timestamp Formats</h2>
+                <ul>
+                    <li><strong>Relative time</strong> (e.g., "2 hours ago", "in 3 days")</li>
+                    <li><strong>Short time</strong> (e.g., "9:41 PM")</li>
+                    <li><strong>Long time</strong> (e.g., "9:41:30 PM")</li>
+                    <li><strong>Short date</strong> (e.g., "04/16/2023")</li>
+                    <li><strong>Long date</strong> (e.g., "April 16, 2023")</li>
+                    <li><strong>Long date with short time</strong> (e.g., "April 16, 2023 9:41 PM")</li>
+                    <li><strong>Long date with day of week and short time</strong> (e.g., "Sunday, April 16, 2023 9:41 PM")</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p>© <span id="currentYear"></span> HyperTools — html/css/js</p>
     </footer>
 
     <script src="script.js"></script>

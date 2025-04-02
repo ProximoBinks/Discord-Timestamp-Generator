@@ -1,0 +1,22 @@
+OPEN GRAPH IMAGE INSTRUCTIONS
+
+To maximize social media sharing potential, create an og-image.png with the following specifications:
+
+1. Dimensions: 1200 x 630 pixels
+2. File format: PNG or JPG
+3. File size: Under 1MB (ideally around 500KB)
+4. Content:
+   - Include your Discord Timestamp Generator interface
+   - Include HyperTools branding
+   - Use the purple theme colors
+   - Show a sample timestamp
+   - Include text: "Discord Timestamp Generator"
+   - Make sure text is readable when image is small
+
+Place this file in the root directory of your project with the name "og-image.png".
+
+This image will appear when your site is shared on:
+- Twitter
+- Facebook
+- Discord
+- Other social media platforms 

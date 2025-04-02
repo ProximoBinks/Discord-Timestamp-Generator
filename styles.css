@@ -2,6 +2,9 @@
 
 * {
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Ensure Inter is applied to form controls across all browsers */
@@ -24,64 +27,71 @@ input, button, select, option, textarea, .theme-switcher-wrapper, #theme-switche
 html, body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+body {
+    background-color: #1a1124;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main layout */
+main {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    width: 50rem;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.container > * {
-    margin: 0.5rem;
-}
-
-#current {
-    grid-column: span 2;
-}
-
-input, select, button, option {
-    padding: 0.5rem;
-    border-radius: 4px;
-}
-
-button:hover {
-    background: #3d2349;
-}
-
-button {
-    cursor: pointer;
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-}
-
-.button-clicked {
-    background-color: #9e57f4;
-    border: 1px solid #b77dff;
-}
-
-.footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    text-align: center;
-    padding: 10px;
-    font-weight: 600;
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #2d1a36;
+    border: 1px solid rgba(158, 87, 244, 0.2);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.theme-footer-text {
-    font-weight: 400;
+/* Theme switcher */
+.theme-switcher-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    color: #ffffff;
 }
 
+.theme-switcher-wrapper label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+#theme-switcher {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid #9e57f4;
+    background-color: #2d1a36;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Branding */
 .branding {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
 }
 
 .branding img {
@@ -90,58 +100,217 @@ button {
 }
 
 .branding h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
     margin: 0;
+    letter-spacing: -0.01em;
+    color: #b77dff;
 }
 
-.theme-switcher-wrapper {
+/* Header container */
+.header-container {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    margin-top: 15px;
-    margin-right: 15px;
 }
 
-.theme-switcher-wrapper label {
-    margin-right: 5px;
+.header-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #b77dff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
-/* HyperTools Theme */
-body[data-theme='hypertools'] {
-    background: #1a1124;
-    color: #ffffff;
+.header-container p {
+    font-size: 1.1rem;
+    line-height: 1.5;
 }
-body[data-theme='hypertools'] .container,
-body[data-theme='hypertools'] input,
-body[data-theme='hypertools'] select,
-body[data-theme='hypertools'] button {
-    background: #2d1a36;
+
+/* Form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-input {
+    width: 100%;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #2d1a36;
     color: #ffffff;
     border: 1px solid #9e57f4;
+    outline: none;
 }
-body[data-theme='hypertools'] .container {
-    box-shadow: 0px 0px 10px rgba(158, 87, 244, 0.5);
+
+input[type="date"], input[type="time"] {
+    padding: 0.65rem 1rem;
 }
-body[data-theme='hypertools'] .footer {
+
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23999"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.75em auto;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.output-display {
+    display: flex;
+    align-items: center;
+    min-height: 2.5rem;
+    font-weight: 500;
+}
+
+/* Code display */
+.code-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#code {
+    font-family: monospace !important;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    background-color: #9e57f4;
+    color: #ffffff;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.reset-button {
+    width: 100%;
+}
+
+.button-clicked {
+    background-color: #b77dff;
+}
+
+/* Info container */
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.info-section h2, .formats-section h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: #b77dff;
+}
+
+.info-section p, .formats-section p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.info-section ol, .formats-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section li, .formats-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
     background-color: #2d1a36;
     color: #ffffff;
 }
-body[data-theme='hypertools'] button:active {
-    background-color: #9e57f4;
-    color: #ffffff;
+
+.footer p {
+    font-weight: 600;
+    font-size: 0.9rem;
 }
-body[data-theme='hypertools'] h1 {
-    color: #b77dff;
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid #9e57f4;
+    outline-offset: 2px;
 }
-body[data-theme='hypertools'] .branding h2 {
-    color: #b77dff;
+
+/* Media Queries for Responsiveness */
+@media (max-width: 840px) {
+    .header-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
 }
-body[data-theme='hypertools'] input[type="date"]::-webkit-calendar-picker-indicator,
-body[data-theme='hypertools'] input[type="time"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-}
-body[data-theme='hypertools'] .theme-switcher-wrapper {
-    color: #ffffff;
+
+@media (max-width: 600px) {
+    .header-container h1 {
+        font-size: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .container {
+        padding: 1.25rem;
+    }
+
+    .code-row {
+        grid-template-columns: 1fr;
+    }
+
+    .theme-switcher-wrapper {
+        padding: 10px 15px;
+    }
+
+    #theme-switcher {
+        max-width: 130px;
+    }
 }
 
 /* Light Theme */
@@ -546,31 +715,6 @@ body[data-theme='bluedark'] input[type="time"]::-webkit-calendar-picker-indicato
     filter: invert(1);
 }
 
-/* Media Queries */
-@media (max-width: 50rem) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-    }
-
-    .container > * {
-        margin: 1rem 0.2rem;
-    }
-}
-
-/* Override browser specific dropdown styling */
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0h12L6 6z" fill="%23999"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 0.7em center;
-    background-size: 0.65em auto;
-    padding-right: 1.5em;
-}
-
 /* Additional selectors to ensure Inter is applied to dropdown menus */
 select, select *, option {
     font-family: 'Inter', sans-serif !important;
@@ -604,3 +748,17 @@ input {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500;
 }
+
+/* Improve focus visibility for accessibility */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid #9e57f4;
+    outline-offset: 2px;
+}
+
+/* Calendar and time picker styling */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+

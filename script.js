@@ -25,11 +25,17 @@ current.addEventListener('mouseup', function () {
 dateInput.onchange = updateOutput;
 timeInput.onchange = updateOutput;
 typeInput.onchange = updateOutput;
-output.onmouseover = function () { this.select(); }
+output.onclick = function () { this.select(); }
 copy.onclick = async () => {
     updateOutput();
     try {
         await navigator.clipboard.writeText(output.value);
+        // Optional: Add a visual indication that copying worked
+        const originalText = copy.textContent;
+        copy.textContent = "Copied!";
+        setTimeout(() => {
+            copy.textContent = originalText;
+        }, 1500);
     } catch (e) {
         console.error("Could not copy text: ", e);
         alert("Failed to copy text");
@@ -45,7 +51,7 @@ const onload = _ => {
 
         const now = new Date();
         dateInput.value = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}`;
-        timeInput.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+        timeInput.value = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
 
         updateOutput(); // Update the preview
 
@@ -114,27 +120,18 @@ function updateOutput() {
             }
         }
 
-        if (unit === 'minute') {
-            if (Math.abs(differenceInSeconds) < 120) {
-                preview.textContent = "1 minute ago";
-            } else {
-                preview.textContent = formatter.format(value, unit);
-            }
-        } else {
-            preview.textContent = formatter.format(value, unit);
-        }
-
+        preview.textContent = formatter.format(value, unit);
     } else {
         const formatter = new Intl.DateTimeFormat(navigator.language || 'en', typeFormats[typeInput.value] || {});
         preview.textContent = formatter.format(selectedDate);
     }
 }
 
+// Theme switcher
 const themeSwitcher = document.getElementById('theme-switcher');
 
 themeSwitcher.addEventListener('change', function() {
-  document.body.setAttribute('data-theme', this.value);
+    document.body.setAttribute('data-theme', this.value);
 });
 
-// To set the HyperTools theme as default
-document.body.setAttribute('data-theme', 'hypertools');
+// Set default theme (already set in HTML with data-theme="hypertools")
